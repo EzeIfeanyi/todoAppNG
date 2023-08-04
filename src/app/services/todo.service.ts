@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Todo } from "../models/todo.model";
 
-
 @Injectable({
     providedIn: 'root'
 })
@@ -39,16 +38,18 @@ export class TodoService {
         return this.todos;
     }
 
-    updateTodo(todoValue: string) {
-        let todo: Todo = {
-            Id: this.todos.length + 1,
-            title: todoValue,
-            description: ""
-        }
+    updateTodo(todo: Todo) {
+        this.todos = this.todos.filter(t => t.Id !== todo.Id);
         this.todos.push(todo);
     }
 
     deleteTodo(todo: Todo) {
-        this.todos = this.todos.filter(item => item.Id !== todo.Id);
+        this.todos = this.todos.filter(
+            item => item.title !== todo.title
+        );
+    }
+
+    addTodo(todo: Todo) {
+        this.todos.push(todo);
     }
 }

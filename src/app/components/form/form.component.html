@@ -1,4 +1,10 @@
-<form id="new-task-form">
-    <input type="text" spellcheck="true" aria-autocomplete="none" placeholder="What do you have planned?" id="new-task-input" />
-    <input type="submit" id="new-task-submit" value="Add task" />
+<form id="new-task-form" (ngSubmit)="onSubmit()" #todoForm="ngForm">
+    <input type="text"
+    spellcheck="true"
+    aria-autocomplete="none"
+    placeholder="What do you have planned?" 
+    id="new-task-input"
+    [(ngModel)]="title" name="title"/>
+
+    <input type="submit" id="new-task-submit" (click)="addTodo()" value="Add task" />
 </form>

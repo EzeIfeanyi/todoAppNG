@@ -37,7 +37,7 @@ export class TodoListComponent implements OnInit {
       if (input.nodeValue !== null) {
         todo.title = input.nodeValue;
       }
-
+      this.todoService.updateTodo(todo);
       edit.innerHTML = "Edit";
       input.setAttribute("readonly", "readonly");
     }
