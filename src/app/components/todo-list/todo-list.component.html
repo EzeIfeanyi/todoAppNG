@@ -1,0 +1,18 @@
+<main>
+    <section class="task-list">
+        <h2>{{ title }}</h2>
+        <div *ngIf="TodoList">
+            <div id="task" *ngFor="let todo of TodoList">
+                <div class="task">
+                    <div class="content">
+                        <input type="text" class="text" [value]="todo.title" readonly />
+                    </div>
+                    <div class="actions">
+                        <button class="edit" [id]="todo.Id" (click)="onEdit(todo)">Edit</button>
+                        <button class="delete" (click)="onDelete(todo)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
